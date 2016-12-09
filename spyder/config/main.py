@@ -178,7 +178,8 @@ DEFAULTS = [
               'in_prompt': '',
               'out_prompt': '',
               'light_color': True,
-              'dark_color': False
+              'dark_color': False,
+              'pdb_active':False
               }),
             ('variable_explorer',
              {

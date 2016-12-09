@@ -791,11 +791,14 @@ def set_post_mortem():
     """
     if IS_IPYKERNEL:
         from IPython.core.getipython import get_ipython
+        from spyder.config.main import CONF
         def ipython_post_mortem_debug(shell, etype, evalue, tb,
                    tb_offset=None):
             post_mortem_excepthook(etype, evalue, tb)
         ipython_shell = get_ipython()
         ipython_shell.set_custom_exc((Exception,), ipython_post_mortem_debug)
+        CONF.set('ipython_console', 'pdb_active', True)
+        print("en site cust",CONF.get('ipython_console', 'pdb_active'))
     else:
         sys.excepthook = post_mortem_excepthook
 

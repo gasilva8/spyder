@@ -465,6 +465,8 @@ class ExternalConsole(SpyderPluginWidget):
                                         interpreter_only=interpreter_only)
         if shellwidget is not None:
             shellwidget.shell.execute_lines(to_text_string(lines))
+            if lines == "exit":
+                CONF.set('ipython_console', 'pdb_active', False)
             self.activateWindow()
             shellwidget.shell.setFocus()
             return True

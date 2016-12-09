@@ -2303,7 +2303,14 @@ class Editor(SpyderPluginWidget):
             post_mortem = runconf.post_mortem
             current = runconf.current
             systerm = runconf.systerm
-            
+
+            from spyder.config.main import CONF
+            pdb_active = CONF.get('ipython_console', 'pdb_active')
+            print("pdb_active:",pdb_active)
+            if post_mortem and pdb_active:
+                self.debug_command("exit")
+                self.run_file()
+
             python = True # Note: in the future, it may be useful to run
             # something in a terminal instead of a Python interp.
             self.__last_ec_exec = (fname, wdir, args, interact, debug,
