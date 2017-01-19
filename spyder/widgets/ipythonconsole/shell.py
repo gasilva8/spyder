@@ -119,8 +119,8 @@ These commands were executed:
             banner = banner + lines
         if (pylab_o and sympy_o):
             lines = """
-Warning: pylab (numpy and matplotlib) and symbolic math (sympy) are both
-enabled at the same time. Some pylab functions are going to be overrided by
+Warning: pylab (numpy and matplotlib) and symbolic math (sympy) are both 
+enabled at the same time. Some pylab functions are going to be overrided by 
 the sympy module (e.g. plot)
 """
             banner = banner + lines
